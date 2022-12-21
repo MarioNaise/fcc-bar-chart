@@ -1,3 +1,5 @@
 .DS_Store
 .replit
 replit.nix
+.cache
+.config
