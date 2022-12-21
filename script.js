@@ -3,12 +3,13 @@
   
   const getData = async () => {
     const response = await fetch(dataUrl);
-    return await response.json();
+    const dataObj = await response.json();
+    const data = dataObj.data;
+    return await data;
   }
   
   const renderData = async() => {
-    const dataObj = await getData();
-    const data = dataObj.data;
+    const data = await getData();
     console.log(data);
   }
   
