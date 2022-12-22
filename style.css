@@ -7,6 +7,10 @@ html, body {
   background: #fff url("https://parispeaceforum.org/wp-content/uploads/2021/10/NET-ZERO-SPACE-INITIATIVE-1.png") center center/cover no-repeat;
 }
 
+p{
+  padding: 3px;
+}
+
 .flex{
   display: flex;
   flex-direction: column;
