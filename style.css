@@ -9,11 +9,7 @@ body {
 
 main{
   position: relative;
-  outline: 1px solid black;
-}
-
-svg{
-  outline: 1px solid black;
+  margin: 2rem;
 }
 
 p{

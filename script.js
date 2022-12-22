@@ -10,8 +10,8 @@
 
   const renderData = async () => {
     const dataset = await getData();
-    const w = 1000;
-    const h = 700;
+    const w = 800;
+    const h = 500;
     const padding = 50;
 
     const yearsDate = dataset.map((item)=>{
@@ -73,14 +73,12 @@
       .on("mouseover", (e, d)=>{
         const year = d[0].slice(0,4);
         const month = d[0].slice(5,7);
-        console.log(e, e.screenX, e.screenY, e.clientX, e.clientY)
-        
         tooltip
         .attr("data-date", d[0])
         .attr("data-gdp", d[1])
         .style("display", "block")
-        .style("left", e.offsetX + 5 + "px")
-        .style("top", e.offsetY + 5 + "px")
+        .style("left", `${e.offsetX + 5}px`)
+        .style("top", `${e.offsetY + 5}px`)
         .html(
           `<p>${month}/${year}</p>
           <p>$${d[1]} Billion</p>`
