@@ -11,8 +11,8 @@
   const renderData = async () => {
     const dataset = await getData();
     const w = 1000;
-    const h = 500;
-    const padding = 30;
+    const h = 700;
+    const padding = 50;
 
     const xScale = d3.scaleLinear()
       .domain([0, dataset.length])
