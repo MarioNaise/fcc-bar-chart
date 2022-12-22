@@ -15,12 +15,12 @@
     const padding = 50;
 
     const xScale = d3.scaleLinear()
-      .domain([0, dataset.length])
+      .domain([d3.min(dataset, (d) => parseInt(d[0].slice(0,4))), d3.max(dataset, (d) => parseInt(d[0].slice(0,4)))])
       .range([padding, w - padding]);
 
     const yScale = d3.scaleLinear()
       .domain([0, d3.max(dataset, (d) => d[1])])
-      .range([0, h - padding]);
+      .range([h - padding,0]);
 
 
     const svg = d3.select("main")
@@ -61,10 +61,10 @@
       .data(dataset)
       .enter()
       .append("rect")
-      .attr("x", (d, i) => xScale(i))
-      .attr("y", (d) => h - yScale(d[1]) - padding)
+      .attr("x", (d) => xScale(parseInt(d[0].slice(0,4))))
+      .attr("y", (d) => yScale(d[1]))
+      .attr("height", (d) => h - yScale(d[1]) - padding)
       .attr("width", (w - (padding * 2)) / dataset.length)
-      .attr("height", (d) => yScale(d[1]))
       .attr("class", "bar")
       .attr("data-date", (d)=>d[0])
       .attr("data-gdp", (d)=>d[1])
