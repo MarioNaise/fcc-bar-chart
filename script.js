@@ -35,6 +35,9 @@
       .attr("y", (d) => h - yScale(d[1]) - padding)
       .attr("width", ((w - (padding * 2)) / dataset.length) * 0.67)
       .attr("height", (d) => yScale(d[1]))
+      .attr("class", "bar")
+      .attr("data-date", (d)=>d[0])
+      .attr("data-gdp", (d)=>d[1])
 
   }
 
