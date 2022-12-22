@@ -14,13 +14,14 @@
     const h = 700;
     const padding = 50;
 
+    console.log(window)
+
     const yearsDate = dataset.map((item)=>{
       return new Date(item[0]);
     });
 
     const xMax = new Date(d3.max(yearsDate));
     xMax.setMonth(xMax.getMonth() + 3);
-    console.log(xMax)
 
     const xScale = d3.scaleTime()
       .domain([d3.min(yearsDate), xMax])
