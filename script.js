@@ -14,8 +14,6 @@
     const h = 700;
     const padding = 50;
 
-    console.log(window)
-
     const yearsDate = dataset.map((item)=>{
       return new Date(item[0]);
     });
