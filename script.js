@@ -73,13 +73,13 @@
       .on("mouseover", (e, d)=>{
         const year = d[0].slice(0,4);
         const month = d[0].slice(5,7);
-        const svgDOM = document.querySelector("main")
+        const mainDom = document.querySelector("main")
         tooltip
         .attr("data-date", d[0])
         .attr("data-gdp", d[1])
         .style("display", "block")
-        .style("left", `${e.pageX - svgDOM.offsetLeft - padding + 10}px`)
-        .style("top", `${e.pageY - svgDOM.offsetTop - padding + 10}px`)
+        .style("left", `${e.pageX - mainDom.offsetLeft - padding + 10}px`)
+        .style("top", `${e.pageY - mainDom.offsetTop - padding + 10}px`)
         .html(
           `<p>${month}/${year}</p>
           <p>$${d[1]} Billion</p>`
