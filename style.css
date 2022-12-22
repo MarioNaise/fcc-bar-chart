@@ -30,3 +30,14 @@ p{
 .bar:hover{
   fill: ghostwhite;
 }
+
+#tooltip{
+  width: 150px;
+  height: 100px;
+  background-color: rgba(122,168,214,.5);
+  position: absolute;
+  bottom: 100px;
+  color: white;
+  outline: 1px solid black;
+  display: none;
+}

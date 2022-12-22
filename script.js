@@ -14,8 +14,16 @@
     const h = 700;
     const padding = 50;
 
-    const xScale = d3.scaleLinear()
-      .domain([d3.min(dataset, (d) => parseInt(d[0].slice(0,4))), d3.max(dataset, (d) => parseInt(d[0].slice(0,4)))])
+    const yearsDate = dataset.map((item)=>{
+      return new Date(item[0]);
+    });
+
+    const xMax = new Date(d3.max(yearsDate));
+    xMax.setMonth(xMax.getMonth() + 3);
+    console.log(xMax)
+
+    const xScale = d3.scaleTime()
+      .domain([d3.min(yearsDate), xMax])
       .range([padding, w - padding]);
 
     const yScale = d3.scaleLinear()
@@ -32,14 +40,7 @@
       .select("main")
       .append("div")
       .attr("id", "tooltip")
-      .style("width", "150px")
-      .style("height", "100px")
-      .style("background-color", "rgba(122,168,214,.5)")
-      .style("position", "absolute")
-      .style("bottom", padding*2+"px")
-      .style("color", "white")
-      .style("outline", "1px solid black")
-      .style("display", "none");
+      
 
     const xAxis = d3.axisBottom(xScale);
     
@@ -61,7 +62,9 @@
       .data(dataset)
       .enter()
       .append("rect")
-      .attr("x", (d) => xScale(parseInt(d[0].slice(0,4))))
+      .attr("x", (d, i) => {
+        return xScale(yearsDate[i]);
+      })
       .attr("y", (d) => yScale(d[1]))
       .attr("height", (d) => h - yScale(d[1]) - padding)
       .attr("width", (w - (padding * 2)) / dataset.length)
