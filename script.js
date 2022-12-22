@@ -38,7 +38,8 @@
       .attr("class", "bar")
       .attr("data-date", (d)=>d[0])
       .attr("data-gdp", (d)=>d[1])
-
+      .append("title")
+      .text((d)=>d)
   }
 
 
