@@ -22,6 +22,12 @@
       .domain([0, d3.max(dataset, (d) => d[1])])
       .range([0, h - padding]);
 
+
+    const svg = d3.select("main")
+      .append("svg")
+      .attr("width", w)
+      .attr("height", h)
+
     const tooltip = d3
       .select("main")
       .append("div")
@@ -33,14 +39,25 @@
       .style("bottom", padding*2+"px")
       .style("color", "white")
       .style("outline", "1px solid black")
-      .style("display", "none")
+      .style("display", "none");
+
+    const xAxis = d3.axisBottom(xScale);
+    
+    const yAxis = d3.axisLeft(yScale);
+    
+    svg.append("g")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(xAxis)
+       .attr("id", "x-axis");
+      
+    svg.append("g")
+       .attr("transform", "translate(" + padding + ",0)")
+       .call(yAxis)
+       .attr("id", "y-axis");
       
 
-    const svg = d3.select("main")
-      .append("svg")
-      .attr("width", w)
-      .attr("height", h)
-      .selectAll("rect")
+    
+    svg.selectAll("rect")
       .data(dataset)
       .enter()
       .append("rect")
@@ -70,6 +87,7 @@
         tooltip
         .style("display", "none")
       })
+  
   }
 
 
