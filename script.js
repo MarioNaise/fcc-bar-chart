@@ -36,7 +36,7 @@
       .attr("height", h)
 
     const tooltip = d3
-      .select("main")
+      .select("body")
       .append("div")
       .attr("id", "tooltip")
       
@@ -78,8 +78,8 @@
         .attr("data-date", d[0])
         .attr("data-gdp", d[1])
         .style("display", "block")
-        .style("left", `${e.pageX - mainDom.offsetLeft - padding + 10}px`)
-        .style("top", `${e.pageY - mainDom.offsetTop - padding + 10}px`)
+        .style("left", `${e.pageX + 10}px`)
+        .style("top", `${e.pageY + 10}px`)
         .html(
           `<p>${month}/${year}</p>
           <p>$${d[1]} Billion</p>`
