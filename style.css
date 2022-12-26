@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #fff url("https://parispeaceforum.org/wp-content/uploads/2021/10/NET-ZERO-SPACE-INITIATIVE-1.png") center center/cover no-repeat;
+  background: #fff url("https://media.istockphoto.com/id/1051690398/photo/financial-growth-chart.jpg?s=612x612&w=0&k=20&c=c8R2y-i0nLjFaYakNemWpMonmsXuKiwNv-aPL65PhCI=") center center/cover no-repeat;
 }
 
 main{
@@ -25,7 +25,7 @@ p{
 
 .wrapper{
   min-width: 1000px;
-  background-color: rgba(122,168,214,.5);
+  background-color: rgba(255, 255, 255,.5);
   backdrop-filter: blur(20px);
   margin: 3rem;
   border-radius: 1rem;
